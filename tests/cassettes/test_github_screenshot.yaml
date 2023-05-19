@@ -1,0 +1,184 @@
+interactions:
+    - request:
+          body: null
+          headers:
+              Accept:
+                  - "*/*"
+              Accept-Encoding:
+                  - gzip, deflate
+              Connection:
+                  - keep-alive
+              User-Agent:
+                  - python-requests/2.30.0
+              authorization:
+                  - XXXXXXXXXX
+          method: GET
+          uri: https://api.github.com/repos/textualize/textual/git/trees/v0.25.0
+      response:
+          body:
+              string: !!binary |
+                  H4sIAAAAAAAAA62ZXU+bRxCF/4uvU7zfs8tdREhaKQlqm15VVbS7MwtujO3YJgqN8t973kDxq6RC
+                  i/xyAVjYHB7P15nhy2x3lWens9Z8CF55XWKJKoZYrNP4rLVybCxTcS3jm9mz2c12iRdc7feb3el8
+                  njeLk8vF/uqmnNT19Xwrm/Vu/k4+72/ycvGPzPd3387xnPl+K7KbP0FqeMHs9M8vs03eX0EUEp9k
+                  my9lW/GHXK8ZP51ppYJzeLy/3QyPy3Jd8OiOS0XKOpBrlGMQa7w3LUUl4NQi7DLHGrWKwwvw585O
+                  tfPHIA7iu3m36tdnB7aWPx6glFP4OEB9eyf+gyKxKlVfmEIL2fkarEnRlGxc9Ow0mGzyNk0QrG6p
+                  McldPnTCtNyqsjWyzqGJ9z7qWkxQQs6XZMlZ4uqIJoDplvoOZnG5Wm+Ht78n41gFoyS7rEhp2zRJ
+                  8qEmZ6IOgRuzNqY0N8T2PuOCnyDlumXHbJut/ISqvV7s8WXVFpcnt/l62QlaQmzstdHaSqGQjWnK
+                  m6pVUC5mRuQMi6rtATSYeHxpdauOOM9+fv721fnri1cn19wJ54YYueyIS5SsFHnWKeRMlFB6HIoz
+                  tWY5RNF7vA/H43XrjvEuXpy/v3j5/uzi7Ys/zt71Q7J21qNnsEfbYHQco52YhjK0vmYmTRRTbYcI
+                  Dk8+nrFbdsT48vmv/VzVoIGgr3tl0Dpy8S7XVksLpMXic8CwQ4r6h8xMVqfjubplR1yvfzk7f/v7
+                  eWdW2uxsSuSTOMUlo9FbG1IUM0SwGYm6qRrSAQzFOAFYt+wI7E3+IG2x7O2akUhC05GqRwk4a1VT
+                  Kdos1WkvnKp4LTrrh5AZlcLxIeuWHZH9dv78xZvz/mxk7TGQMd5yM0RwUVZSo0I+kpdquTILw8Q8
+                  oKEQpxgIvbIjNF7XXT9YsJjLwiGHSqmEYYjDizjJFa2xuZRM8bBmg2e8m3Q+6eND1q36HdehxB71
+                  VhV9QnsjRlkYRyHYkAgar6KBJ9bNNJPQOzJ+3bFGuFtqRCKf8/VmKbtOmlgShjKJElh5K76ElKRl
+                  G0VgL1FPvsFpyRQ03VIjGljek9tuw6E1GetjJMMmKlViyHBW1XMr1SSrLKZZcDTqEWmC5tetOuJa
+                  XF/2RsiwwuYFQyE1h2hd9Wh7olpMiBScLzOH4PzQ0o/Nt26pEcn1h6EnfDOJ69UTYpWKUK7aJO+t
+                  lwJ3YR1VVpzgdo2VoCjqWIe17a43mEAT2Kdu2R8RV/nTE/iazyljJ9agsMUFXWD6XTWqNUc5SB2e
+                  wH5Ywe57H8UJrFO37I9869aWi5U8gVGxDYRGbogDO8J1gLzhRNYIvJXVNVCUwKNNZpLduVf1fxBX
+                  TyT0MUu2rVLBxpaRmQ0LW05ebDRWWxW8C6GEgwG2io6pw7vrQLfqmPB2c3uyWC0Off/Rs0dFQtam
+                  csXJw5Wim8d2HSviVozFVq2Fmcy3vn9fflPsoN2qI7DVet89zYhUTdk7uFzfiso4VwUJOWlsnoLx
+                  DMhIkSa5e/RKjVA2a9lvb0+W6/qhM0zWORyjmrOFlUKr1zYylsoQNGpPSsZCJlbzcPu4vxVEZeME
+                  5rBbeIx3u9mu/5a6P9mvu2e2b9FVjGfrikWlwUCVkMXbqqMUB9+oKjI1HjwiFrcJfH237Ijv443s
+                  9ov1qndy69YEszomr4ACnKi0YQyDxgXmBNcflQvXKbKxW2qEs5UmW1nV0Qb2qPHFelUjWUpVUdWU
+                  cFNkHBEjI2gBld2S85ZdmMCIdEuNcHbjk++jIKrg6ITZ21LGdcMrDSOCYdWC4aadk4CVpSY13IiP
+                  dVTdUiMQtLt9b4oNzQwdu6Aj4EpqBC6+Zqwk6A80WF3m6JSoKVKsW2qMsl4ve1GMiokMLtWM22ck
+                  LPXYRlorzQJCHKreJevzFGfebqmvf+GfBtubVc174dlpy8udfP0Xb9CMQhIZAAA=
+          headers:
+              Access-Control-Allow-Origin:
+                  - "*"
+              Access-Control-Expose-Headers:
+                  - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+                    X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes,
+                    X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO,
+                    X-GitHub-Request-Id, Deprecation, Sunset
+              Cache-Control:
+                  - private, max-age=60, s-maxage=60
+              Content-Encoding:
+                  - gzip
+              Content-Security-Policy:
+                  - default-src 'none'
+              Content-Type:
+                  - application/json; charset=utf-8
+              Date:
+                  - Fri, 19 May 2023 23:25:08 GMT
+              ETag:
+                  - W/"4a1870450e9c1fe1f01c98d4e382963c7f3563af602d5198ce7e4be658121531"
+              Last-Modified:
+                  - Fri, 19 May 2023 21:58:03 GMT
+              Referrer-Policy:
+                  - origin-when-cross-origin, strict-origin-when-cross-origin
+              Server:
+                  - GitHub.com
+              Strict-Transport-Security:
+                  - max-age=31536000; includeSubdomains; preload
+              Transfer-Encoding:
+                  - chunked
+              Vary:
+                  - Accept, Authorization, Cookie, X-GitHub-OTP
+                  - Accept-Encoding, Accept, X-Requested-With
+              X-Accepted-OAuth-Scopes:
+                  - ""
+              X-Content-Type-Options:
+                  - nosniff
+              X-Frame-Options:
+                  - deny
+              X-GitHub-Media-Type:
+                  - github.v3; format=json
+              X-GitHub-Request-Id:
+                  - C003:2562:4E8807:A2B066:64680554
+              X-OAuth-Scopes:
+                  - admin:repo_hook, gist, repo, workflow
+              X-RateLimit-Limit:
+                  - "5000"
+              X-RateLimit-Remaining:
+                  - "4999"
+              X-RateLimit-Reset:
+                  - "1684542308"
+              X-RateLimit-Resource:
+                  - core
+              X-RateLimit-Used:
+                  - "1"
+              X-XSS-Protection:
+                  - "0"
+              x-github-api-version-selected:
+                  - "2022-11-28"
+          status:
+              code: 200
+              message: OK
+    - request:
+          body: null
+          headers:
+              Accept:
+                  - "*/*"
+              Accept-Encoding:
+                  - gzip, deflate
+              Connection:
+                  - keep-alive
+              User-Agent:
+                  - python-requests/2.30.0
+              authorization:
+                  - XXXXXXXXXX
+          method: GET
+          uri: https://raw.githubusercontent.com/textualize/textual/v0.25.0/.pre-commit-config.yaml
+      response:
+          body:
+              string: !!binary |
+                  H4sIAAAAAAAAA4VRy27DIBC8+ytWzsGtVOw6aS/8Ro9VGxG8Nsi8CjhN/r6YRHFTKc0eYPYxyw67
+                  gjdEEDG6QJvGeSTcai1jnS7orQdtPYI0CWoWpTXF6h9GI6wdQy2iVgs5xwqPzgZaABCYIb10GGQU
+                  0y6zl2a/IDnxIZnHPYX9S72pn7OfMzTDua/sKETPpJJmIN9CRgyOcbzKo+mI7UkvFabjgP4qywXy
+                  kRyZVucwAPNDoPAOFSGTCazHCj7uqDjyL9bIYH1cpn6t2/XtqZfi2QzTeI7BgztGYc3jJamYGSY2
+                  4HaPPqR9UKg2ddtWfwcuCXHezjrLJyh3ivFxBmSWHtHnHwjlPSmhbzJ1EbJOr90WcirGA1dTlzR8
+                  phXE0ATDXBA2brNb/ABEr71WdAIAAA==
+          headers:
+              Accept-Ranges:
+                  - bytes
+              Access-Control-Allow-Origin:
+                  - "*"
+              Cache-Control:
+                  - max-age=300
+              Connection:
+                  - keep-alive
+              Content-Encoding:
+                  - gzip
+              Content-Length:
+                  - "307"
+              Content-Security-Policy:
+                  - default-src 'none'; style-src 'unsafe-inline'; sandbox
+              Content-Type:
+                  - text/plain; charset=utf-8
+              Date:
+                  - Fri, 19 May 2023 23:25:12 GMT
+              ETag:
+                  - W/"fd041c1b0c74bcf8da3d544edf2111446e6d111a1b9ea80315a37ee700d72384"
+              Expires:
+                  - Fri, 19 May 2023 23:30:12 GMT
+              Source-Age:
+                  - "0"
+              Strict-Transport-Security:
+                  - max-age=31536000
+              Vary:
+                  - Authorization,Accept-Encoding,Origin
+              Via:
+                  - 1.1 varnish
+              X-Cache:
+                  - MISS
+              X-Cache-Hits:
+                  - "0"
+              X-Content-Type-Options:
+                  - nosniff
+              X-Fastly-Request-ID:
+                  - ccf0d9361440fd148a351c10408fc55f588f7331
+              X-Frame-Options:
+                  - deny
+              X-GitHub-Request-Id:
+                  - 0DFC:86D4:CE226:F644D:64680557
+              X-Served-By:
+                  - cache-den8276-DEN
+              X-Timer:
+                  - S1684538712.938889,VS0,VE159
+              X-XSS-Protection:
+                  - 1; mode=block
+          status:
+              code: 200
+              message: OK
+version: 1
