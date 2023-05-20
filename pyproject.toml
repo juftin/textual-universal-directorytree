@@ -13,8 +13,7 @@ classifiers = [
   "Programming Language :: Python :: 3.11"
 ]
 dependencies = [
-  # "textual>=0.25.0",
-  "textual[dev] @ git+https://github.com/davep/textual@7dd05e3ec0fd617d4d373cb0626b2f6838d49ca2",
+  "textual>=0.26.0",
   "universal-pathlib>=0.0.23"
 ]
 description = "A Textual Directory Tree for all File Systems"
@@ -50,8 +49,7 @@ parallel = true
 
 [tool.hatch.envs.default]
 dependencies = [
-  # "textual[dev]>=0.25.0",
-  "textual[dev] @ git+https://github.com/davep/textual@7dd05e3ec0fd617d4d373cb0626b2f6838d49ca2",
+  "textual[dev]>=0.26.0",
   "urllib3<2.0.0",
   "pytest~=7.3.1",
   "pytest-cov~=4.0.0",
@@ -109,9 +107,6 @@ python = ["3.8", "3.9", "3.10", "3.11"]
 
 [tool.hatch.envs.test.scripts]
 matrix = "test"
-
-[tool.hatch.metadata]
-allow-direct-references = true
 
 [tool.hatch.version]
 path = "textual_universal_directorytree/_version.py"

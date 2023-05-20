@@ -1,5 +1,9 @@
 """
-Helpers for the tests
+Test Utilities
+
+Until Textual has a better way to test, this module provides
+some utilities to help with testing for this library and dependent
+applications.
 """
 
 from __future__ import annotations
@@ -18,21 +22,23 @@ class Screenshotter:
     App Screenshotter
     """
 
-    def __init__(self, file_path: str | pathlib.Path) -> None:
+    def __init__(self, file_path: str | pathlib.Path,
+                 dimensions: Optional[Tuple[int, int]] = None) -> None:
         """
         Initialize the Screenshotter
         """
         self.app = UniversalDirectoryTreeApp(path=str(file_path))
+        self.dimensions = dimensions or (120, 35)
 
     def take_screenshot(
-        self, press: Optional[List[str]] = None
+            self, press: Optional[List[str]] = None
     ) -> Tuple[str, pathlib.Path]:
         """
         Take a Screenshot
         """
         screenshot = take_svg_screenshot(
             app=self.app,
-            terminal_size=(120, 35),
+            terminal_size=self.dimensions,
             press=press or [],
             title=None,
         )
@@ -56,3 +62,17 @@ class Screenshotter:
         current_test = environ["PYTEST_CURRENT_TEST"].split("::")[-1].split(" ")[0]
         screenshot_path = screenshot_dir / f"{current_test}.svg"
         return screenshot_path
+
+    def compare_screenshots(self, former: str, new: str, write_error_file: bool = False) -> None:
+        """
+        Compare two screenshots
+        """
+        try:
+            assert former == new
+        except AssertionError as e:
+            if write_error_file is True:
+                screenshot_path = self._get_screenshot_path()
+                former_name = screenshot_path.stem
+                diff_path = screenshot_path.with_stem(f"{former_name}_svg_diff")
+                diff_path.write_text(new)
+            raise e
