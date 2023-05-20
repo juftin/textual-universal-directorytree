@@ -1,0 +1,137 @@
+[build-system]
+build-backend = "hatchling.build"
+requires = ["hatchling"]
+
+[project]
+authors = [{name = "Justin Flannery", email = "justin.flannery@juftin.com"}]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11"
+]
+dependencies = [
+  # "textual>=0.25.0",
+  "textual[dev] @ git+https://github.com/davep/textual@7dd05e3ec0fd617d4d373cb0626b2f6838d49ca2",
+  "universal-pathlib>=0.0.23"
+]
+description = "A Textual Directory Tree for all File Systems"
+dynamic = ["version"]
+keywords = ["textual", "tui", "plugin", "fsspec"]
+license = "MIT"
+name = "textual-universal-directorytree"
+readme = "README.md"
+requires-python = ">=3.8,<4.0"
+
+[project.optional-dependencies]
+remote = [
+  "s3fs",
+  "requests>=2",
+  "gcsf",
+  "adlfs",
+  "aiohttp",
+  "paramiko"
+]
+
+[project.urls]
+Documentation = "https://github.com/juftin/textual-universal-directorytree#readme"
+Issues = "https://github.com/juftin/textual-universal-directorytree/issues"
+Source = "https://github.com/juftin/textual-universal-directorytree"
+
+[tool.coverage.report]
+exclude_lines = ["no cov", "if __name__ == .__main__.:", "if TYPE_CHECKING:"]
+
+[tool.coverage.run]
+branch = true
+omit = ["textual_universal_directorytree/_version.py"]
+parallel = true
+
+[tool.hatch.envs.default]
+dependencies = [
+  # "textual[dev]>=0.25.0",
+  "textual[dev] @ git+https://github.com/davep/textual@7dd05e3ec0fd617d4d373cb0626b2f6838d49ca2",
+  "urllib3<2.0.0",
+  "pytest~=7.3.1",
+  "pytest-cov~=4.0.0",
+  "pytest-mock~=3.10.0",
+  "pytest-vcr~=1.0.2",
+  "mkdocs~=1.4.2",
+  "mkdocs-material~=9.1.6",
+  "mkdocs-click~=0.8.0",
+  "mkdocs-gen-files~=0.4.0",
+  "mkdocs-literate-nav~=0.6.0",
+  "mkdocs-section-index~=0.3.5",
+  "mkdocstrings[python]~=0.21.2",
+  "black~=23.3.0",
+  "ruff~=0.0.261",
+  "mypy~=1.2.0",
+  "pip-tools~=6.13.0"
+]
+pre-install-commands = ["pip install -U --no-deps -r requirements/requirements-dev.txt"]
+python = "3.10"
+
+[tool.hatch.envs.default.scripts]
+_cov = "pytest --cov --cov-report={env:COVERAGE_REPORT:term-missing} --cov-config=pyproject.toml"
+_pip_compile = "pip-compile --resolver=backtracking requirements.in"
+all = ["format", "lint", "check", "test"]
+check = [
+  "mypy --strict-optional {args:textual_universal_directorytree/ tests/}"
+]
+docs-build = ["mkdocs build --clean --strict"]
+docs-deploy = ["mkdocs gh-deploy {args:}"]
+docs-serve = ["mkdocs serve --dev-addr localhost:8000"]
+format = ["ruff --fix {args:.}", "black {args:.}"]
+lint = ["ruff {args:.}", "black --check {args:.}"]
+requirements = [
+  "hatch dep show requirements --project-only > requirements.in",
+  "_pip_compile --output-file requirements/requirements-prod.txt",
+  "hatch dep show requirements > requirements.in",
+  "_pip_compile --output-file requirements/requirements-dev.txt",
+  "rm requirements.in"
+]
+requirements-upgrade = [
+  "hatch dep show requirements --project-only > requirements.in",
+  "_pip_compile --output-file requirements/requirements-prod.txt --upgrade",
+  "hatch dep show requirements > requirements.in",
+  "_pip_compile --output-file requirements/requirements-dev.txt --upgrade",
+  "rm requirements.in"
+]
+semantic-release = [
+  "npm install --prefix .github/semantic_release/",
+  "npx --prefix .github/semantic_release/ semantic-release {args:}"
+]
+test = "_cov --cov=textual_universal_directorytree --cov=tests {args:tests/}"
+
+[[tool.hatch.envs.test.matrix]]
+python = ["3.8", "3.9", "3.10", "3.11"]
+
+[tool.hatch.envs.test.scripts]
+matrix = "test"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.version]
+path = "textual_universal_directorytree/_version.py"
+
+[tool.ruff]
+ignore = [
+  "E501"  # line too long, handled by black
+]
+select = [
+  "E",  # pycodestyle errors
+  "W",  # pycodestyle warnings
+  "F",  # pyflakes
+  "I",  # isort
+  "C",  # flake8-comprehensions
+  "Q",  # flake8-quotes
+  "B",  # flake8-bugbear
+  "PLE",  # pylint
+  "PLR",  # pylint
+  "PLW",  # pylint
+  "RUF",  # ruff
+  "C90",  # mccabe
+  "I"  # isort
+]

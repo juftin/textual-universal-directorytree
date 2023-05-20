@@ -1,0 +1,2 @@
+textual[dev]@ git+https://github.com/davep/textual@7dd05e3ec0fd617d4d373cb0626b2f6838d49ca2
+universal-pathlib>=0.0.23
