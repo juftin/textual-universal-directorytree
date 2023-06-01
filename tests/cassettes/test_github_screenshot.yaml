@@ -1,0 +1,176 @@
+interactions:
+    - request:
+          body: null
+          headers:
+              Accept:
+                  - "*/*"
+              Accept-Encoding:
+                  - gzip, deflate
+              Connection:
+                  - keep-alive
+              User-Agent:
+                  - python-requests/2.30.0
+              authorization:
+                  - XXXXXXXXXX
+          method: GET
+          uri: https://api.github.com/repos/juftin/textual-universal-directorytree/git/trees/v0.0.1
+      response:
+          body:
+              string: !!binary |
+                  H4sIAAAAAAAAA7WWTY/bRgyG/4vOG2u+OB97K9o9FGh7aI9FEXBmOLva2pYrjYtsg/3vpRwj1h4S
+                  TIDIOkiCMeD7iORLfuzmJ+zuu6KycToVX5TguyqIBhSGpEsAlR0aARGV6+6687TnA0+1nub7vsfT
+                  sHsc6tM57tJ46Cc6jXP/fC51OPaVPtQz7t+dj8O/NM38lIeJUh2nlzoR9XyuXx7m/hvCLwe6+z8/
+                  diesTyzkGp2FHcbM/3TCCP7xe305Le+XA3dXTmVI6BhtMFoloaxWhMFAcCEqjT5KABlVLBtxNod/
+                  vXsDODwex2mhuDJKIawxN8a4H+NnRkcim2xAoAYMTlMGfpdE0ZngrSwlWk9pYZyH//gTKS/M987r
+                  omjum6WseU8TveNaOgyVb8cyPO5e8LBvhM8YnVVQFGkNUjC0FowLTsaSfVAyYRYmXiriAi910NvA
+                  N0tZw0+0J5xpSrvnuRFZKW20AEEmSReC4gr3SYeQtbBWS+EcBBNsuCFDCNsgN0tZIf/y848Pv/3x
+                  sKsfaiOwJFOKMi4V9NoiN3KhaJIVgsBHYYtjD3BlMatrjrlftgFulrIC/v3hh59+fdgdciOuoMhX
+                  SsJilugiF3coCOS0QZNdxGJNDnDrZ+O12ga3WcoKN49pVclfdWdprfA+i5iz99ZKHzB46di6HPnC
+                  +FkrBFg+3BZTqDn8iu7w98L3LQ4VPaIArUBbJ5O3zoNNZMEl8Dy4IhByft0Cea1eC/57A3+y52Yp
+                  K+DTy2kan3mK7+rY7MoG0QmQSkmDBMWKTAhZFQlJcG8abmCuZXOzKCOD3Ya5WcqKeaJ/zry5HOhY
+                  591wbOxbtNErG0mzIYfgpLFBQMGIknONyfGqsbjXZXB/GkVyozw3K/kC8w34q+3rU4gZLGTuWR61
+                  JUsDWeqIJoATyFUuYsICG7Vvc/gVZaW5NrtT8IxVgnJJO6F1hMCDFyiilY4gkCEq3tiN8GRr+Dd4
+                  lw38/ecN/P2bDbwxr4GsF1FTzLr4lJ1RyYlUyEWXRWIrM07yMF4KeQtbbg7/+hcv/dP5mLBS7u4L
+                  7md6/R8wMciC4gwAAA==
+          headers:
+              Access-Control-Allow-Origin:
+                  - "*"
+              Access-Control-Expose-Headers:
+                  - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+                    X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes,
+                    X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO,
+                    X-GitHub-Request-Id, Deprecation, Sunset
+              Cache-Control:
+                  - private, max-age=60, s-maxage=60
+              Content-Encoding:
+                  - gzip
+              Content-Security-Policy:
+                  - default-src 'none'
+              Content-Type:
+                  - application/json; charset=utf-8
+              Date:
+                  - Sat, 20 May 2023 00:26:38 GMT
+              ETag:
+                  - W/"67db7a2e2dcdf135a407563875571c058009465022b3a69537eade232654ae27"
+              Last-Modified:
+                  - Sat, 20 May 2023 00:00:46 GMT
+              Referrer-Policy:
+                  - origin-when-cross-origin, strict-origin-when-cross-origin
+              Server:
+                  - GitHub.com
+              Strict-Transport-Security:
+                  - max-age=31536000; includeSubdomains; preload
+              Transfer-Encoding:
+                  - chunked
+              Vary:
+                  - Accept, Authorization, Cookie, X-GitHub-OTP
+                  - Accept-Encoding, Accept, X-Requested-With
+              X-Accepted-OAuth-Scopes:
+                  - ""
+              X-Content-Type-Options:
+                  - nosniff
+              X-Frame-Options:
+                  - deny
+              X-GitHub-Media-Type:
+                  - github.v3; format=json
+              X-GitHub-Request-Id:
+                  - C754:6CF9:1CAD63:3C4D22:646813BE
+              X-OAuth-Scopes:
+                  - admin:repo_hook, gist, repo, workflow
+              X-RateLimit-Limit:
+                  - "5000"
+              X-RateLimit-Remaining:
+                  - "4999"
+              X-RateLimit-Reset:
+                  - "1684545998"
+              X-RateLimit-Resource:
+                  - core
+              X-RateLimit-Used:
+                  - "1"
+              X-XSS-Protection:
+                  - "0"
+              x-github-api-version-selected:
+                  - "2022-11-28"
+          status:
+              code: 200
+              message: OK
+    - request:
+          body: null
+          headers:
+              Accept:
+                  - "*/*"
+              Accept-Encoding:
+                  - gzip, deflate
+              Connection:
+                  - keep-alive
+              User-Agent:
+                  - python-requests/2.30.0
+              authorization:
+                  - XXXXXXXXXX
+          method: GET
+          uri: https://raw.githubusercontent.com/juftin/textual-universal-directorytree/v0.0.1/.pre-commit-config.yaml
+      response:
+          body:
+              string: !!binary |
+                  H4sIAAAAAAAAA71US4vbMBC+51foUNhdqOzQhhIEpZRCTz312gYzK41tsXq4mnE2gf74yuskxHWy
+                  6ak62JbmwfcY2WANveOKGBokJX7o6L3lzaIG66oaiJWowREuFgm7SGoh8pJi2CjRMnekyrKx3PaP
+                  Ra4tu4Ry7HH2KdsYn+ilVOTSrRLbVbEqloeTl6g6bMb+1ijBKWOwoZHPrWWkDjSe5QiBO+16g0rc
+                  /Sxo27y5m3XAYGSsZW0d5scO0yxDt6if5B68uxLKClyJmKiJ04CvtulqlsfUDDKE2lk9T/IZlZGZ
+                  JcoMNjdb3BLYg7YEvkeHpYPQ9Nk4WcfkgRkTyVdVf1esb6me65n3h46S40QZISA1w5hICT3HrOnm
+                  JuCzifA2pThiZLYnO0Zs74tlsZTguhaKD/+A0U7sPEPWZVNYPlvD7cf1+q2QkuHxsF9tLo/Q78nx
+                  sO4/7R7uZ6dCFCO1ktBDYKurlJ0AwvLwrkLMw1q0jzQrfpjiNcayjQFcZbDL7mPQFidsj5xPfCda
+                  u6jBvS7U6OKkYwCPFwMGSSfbDZCU+N4HEl+iQfE5+yy/nuZrKl/gtM+mA+tWpD5canucUSVoT4x+
+                  EuyAqBqu54CKjr+av1nk63GJw+z4CoNvOe+/Ix+m+ldvE1aEyYI7ZvwBJGYTsHEFAAA=
+          headers:
+              Accept-Ranges:
+                  - bytes
+              Access-Control-Allow-Origin:
+                  - "*"
+              Cache-Control:
+                  - max-age=300
+              Connection:
+                  - keep-alive
+              Content-Encoding:
+                  - gzip
+              Content-Length:
+                  - "506"
+              Content-Security-Policy:
+                  - default-src 'none'; style-src 'unsafe-inline'; sandbox
+              Content-Type:
+                  - text/plain; charset=utf-8
+              Date:
+                  - Sat, 20 May 2023 00:26:42 GMT
+              ETag:
+                  - W/"c746f825a03c6a7644af41844edbce9492e6742f2226f210f7d42cb9db8c0f8d"
+              Expires:
+                  - Sat, 20 May 2023 00:31:42 GMT
+              Source-Age:
+                  - "0"
+              Strict-Transport-Security:
+                  - max-age=31536000
+              Vary:
+                  - Authorization,Accept-Encoding,Origin
+              Via:
+                  - 1.1 varnish
+              X-Cache:
+                  - MISS
+              X-Cache-Hits:
+                  - "0"
+              X-Content-Type-Options:
+                  - nosniff
+              X-Fastly-Request-ID:
+                  - c3fedc95b55bc23f183a911a39c15bbcc8674fc5
+              X-Frame-Options:
+                  - deny
+              X-GitHub-Request-Id:
+                  - 605C:9DC3:24D549C:2BA1787:646813C2
+              X-Served-By:
+                  - cache-den8220-DEN
+              X-Timer:
+                  - S1684542402.048237,VS0,VE153
+              X-XSS-Protection:
+                  - 1; mode=block
+          status:
+              code: 200
+              message: OK
+version: 1
