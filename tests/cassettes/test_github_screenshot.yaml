@@ -13,25 +13,24 @@ interactions:
               authorization:
                   - XXXXXXXXXX
           method: GET
-          uri: https://api.github.com/repos/juftin/textual-universal-directorytree/git/trees/v0.0.1
+          uri: https://api.github.com/repos/juftin/textual-universal-directorytree/git/trees/v1.0.0
       response:
           body:
               string: !!binary |
-                  H4sIAAAAAAAAA7WWTY/bRgyG/4vOG2u+OB97K9o9FGh7aI9FEXBmOLva2pYrjYtsg/3vpRwj1h4S
-                  TIDIOkiCMeD7iORLfuzmJ+zuu6KycToVX5TguyqIBhSGpEsAlR0aARGV6+6687TnA0+1nub7vsfT
-                  sHsc6tM57tJ46Cc6jXP/fC51OPaVPtQz7t+dj8O/NM38lIeJUh2nlzoR9XyuXx7m/hvCLwe6+z8/
-                  diesTyzkGp2FHcbM/3TCCP7xe305Le+XA3dXTmVI6BhtMFoloaxWhMFAcCEqjT5KABlVLBtxNod/
-                  vXsDODwex2mhuDJKIawxN8a4H+NnRkcim2xAoAYMTlMGfpdE0ZngrSwlWk9pYZyH//gTKS/M987r
-                  omjum6WseU8TveNaOgyVb8cyPO5e8LBvhM8YnVVQFGkNUjC0FowLTsaSfVAyYRYmXiriAi910NvA
-                  N0tZw0+0J5xpSrvnuRFZKW20AEEmSReC4gr3SYeQtbBWS+EcBBNsuCFDCNsgN0tZIf/y848Pv/3x
-                  sKsfaiOwJFOKMi4V9NoiN3KhaJIVgsBHYYtjD3BlMatrjrlftgFulrIC/v3hh59+fdgdciOuoMhX
-                  SsJilugiF3coCOS0QZNdxGJNDnDrZ+O12ga3WcoKN49pVclfdWdprfA+i5iz99ZKHzB46di6HPnC
-                  +FkrBFg+3BZTqDn8iu7w98L3LQ4VPaIArUBbJ5O3zoNNZMEl8Dy4IhByft0Cea1eC/57A3+y52Yp
-                  K+DTy2kan3mK7+rY7MoG0QmQSkmDBMWKTAhZFQlJcG8abmCuZXOzKCOD3Ya5WcqKeaJ/zry5HOhY
-                  591wbOxbtNErG0mzIYfgpLFBQMGIknONyfGqsbjXZXB/GkVyozw3K/kC8w34q+3rU4gZLGTuWR61
-                  JUsDWeqIJoATyFUuYsICG7Vvc/gVZaW5NrtT8IxVgnJJO6F1hMCDFyiilY4gkCEq3tiN8GRr+Dd4
-                  lw38/ecN/P2bDbwxr4GsF1FTzLr4lJ1RyYlUyEWXRWIrM07yMF4KeQtbbg7/+hcv/dP5mLBS7u4L
-                  7md6/R8wMciC4gwAAA==
+                  H4sIAAAAAAAAA7WWTW/jRgyG/4vOWZvzyZncijaHAm0P7bEoFvNBJkpty5XkYtNF/nupbBArl8Us
+                  sNLB0kAY833Ed0h+7qaH1N12YKIvCozyGQGztiqh8sGXBJac4YRZeZVTd9NdxoNseJjn83S736dz
+                  v7vv54dL3pXhuB/pPEz7xwvP/Wk/06f5kg4fLqf+Xxonear9SGUexqd5JNrLvv3yMO2/Ifyyobv9
+                  83N3TvODCHmNLsKOQ5U3HViQS9bz03lZv2y4eeX0VemiBcy4pEFR8GRD8CqgdjGGTN4gV3IbcTaH
+                  f755B9jfn4ZxoXhlVADe2itjPgz5jREJqq3WQRLIiIaqk7UiymijsDJnH6jwsqH/Tz6RDmC/d14X
+                  RdO+Wcqa9zzSB/HSsZ/lduL+fveUjodG+Joyeu1YkzFOgUAbEFyHKnMNUauSKtj84ogXeGWi2Qa+
+                  WcoafqQDpYnGsnucGpG1NtaAA7JFYYyawIRiYqwGvDcKEF200ccrslh9G+RmKSvkX37+8e63P+52
+                  86e5EViRZdYWC6dgfNIFmLItHoBcyOAZpQYg4xVYzss2wM1SVsC/3/3w0693u2NtxPXEbDMXJT/V
+                  OG+FEZUL4EhrdL5YCBj18ndfLO3AbmTpZikr3DqUlZO/Wp0JqzcadIpRxRxSYs2YotUeAhskZ2OJ
+                  ti6J3aILNYdf0R3/Xvi+pUItXOCMdsajKsFjkBSSd1gkpQDZUdKR8ZpO5V343sBfynOzlBXw+ek8
+                  Do/SxXfz0FyVwbEJFEtS6CWfqQQMNUUX0ZGJkm4ISvuq3yxsot6oJTVLWTGP9M9FJpcjneZWK0ur
+                  iRSqCY45KJ+KllFDPkBO2lpXjUXnQIrURlZuDr+inGlqxvMMiaGgBzmdCoOcV9IoMwajZmEsxDaJ
+                  wTfCaw7/Du9lGv34No1+fDeNXovx10uUNBrNQTpMiQwmQ2XtisbE3qUSycld67hMY5uUqNbwz3/J
+                  ADxeTiXNVLtbToeJnv8Hoc5SXe4LAAA=
           headers:
               Access-Control-Allow-Origin:
                   - "*"
@@ -49,9 +48,9 @@ interactions:
               Content-Type:
                   - application/json; charset=utf-8
               Date:
-                  - Sat, 20 May 2023 00:26:38 GMT
+                  - Thu, 01 Jun 2023 14:56:34 GMT
               ETag:
-                  - W/"67db7a2e2dcdf135a407563875571c058009465022b3a69537eade232654ae27"
+                  - W/"35e7aa89a360c9055c24444336351b1da46238a88403e3479371471550efe3be"
               Last-Modified:
                   - Sat, 20 May 2023 00:00:46 GMT
               Referrer-Policy:
@@ -74,19 +73,21 @@ interactions:
               X-GitHub-Media-Type:
                   - github.v3; format=json
               X-GitHub-Request-Id:
-                  - C754:6CF9:1CAD63:3C4D22:646813BE
+                  - DA4F:4B24:1946:35DE:6478B1A2
               X-OAuth-Scopes:
-                  - admin:repo_hook, gist, repo, workflow
+                  - admin:gpg_key, admin:org, admin:org_hook, admin:public_key, admin:repo_hook,
+                    admin:ssh_signing_key, audit_log, codespace, delete:packages, gist, notifications,
+                    project, read:enterprise, repo, user, workflow, write:discussion, write:packages
               X-RateLimit-Limit:
                   - "5000"
               X-RateLimit-Remaining:
-                  - "4999"
+                  - "4964"
               X-RateLimit-Reset:
-                  - "1684545998"
+                  - "1685632562"
               X-RateLimit-Resource:
                   - core
               X-RateLimit-Used:
-                  - "1"
+                  - "36"
               X-XSS-Protection:
                   - "0"
               x-github-api-version-selected:
@@ -108,7 +109,7 @@ interactions:
               authorization:
                   - XXXXXXXXXX
           method: GET
-          uri: https://raw.githubusercontent.com/juftin/textual-universal-directorytree/v0.0.1/.pre-commit-config.yaml
+          uri: https://raw.githubusercontent.com/juftin/textual-universal-directorytree/v1.0.0/.pre-commit-config.yaml
       response:
           body:
               string: !!binary |
@@ -139,11 +140,11 @@ interactions:
               Content-Type:
                   - text/plain; charset=utf-8
               Date:
-                  - Sat, 20 May 2023 00:26:42 GMT
+                  - Thu, 01 Jun 2023 14:56:37 GMT
               ETag:
                   - W/"c746f825a03c6a7644af41844edbce9492e6742f2226f210f7d42cb9db8c0f8d"
               Expires:
-                  - Sat, 20 May 2023 00:31:42 GMT
+                  - Thu, 01 Jun 2023 15:01:37 GMT
               Source-Age:
                   - "0"
               Strict-Transport-Security:
@@ -159,15 +160,15 @@ interactions:
               X-Content-Type-Options:
                   - nosniff
               X-Fastly-Request-ID:
-                  - c3fedc95b55bc23f183a911a39c15bbcc8674fc5
+                  - 6a0772fc7acc217f55e64a34a3b43838aa523343
               X-Frame-Options:
                   - deny
               X-GitHub-Request-Id:
-                  - 605C:9DC3:24D549C:2BA1787:646813C2
+                  - 40E0:5FF8:29BA42:30D8A5:6478B1A5
               X-Served-By:
-                  - cache-den8220-DEN
+                  - cache-den8250-DEN
               X-Timer:
-                  - S1684542402.048237,VS0,VE153
+                  - S1685631398.720750,VS0,VE154
               X-XSS-Protection:
                   - 1; mode=block
           status:

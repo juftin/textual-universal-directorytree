@@ -32,7 +32,7 @@ def github_release_path() -> GitHubPath:
     """
     Return the path to the GitHub Release
     """
-    release = "v0.0.1"
+    release = "v1.0.0"
     uri = f"github://juftin:textual-universal-directorytree@{release}"
     return GitHubPath(uri)
 
