@@ -26,6 +26,12 @@ class _GitHubAccessor(_FSSpecAccessor):
             kwargs.update({"username": "Bearer", "token": token})
         super().__init__(*args, **kwargs)
 
+    def _format_path(self, path: UPath) -> str:
+        """
+        Remove the leading slash from the path
+        """
+        return path._path.strip("/")
+
 
 class GitHubPath(UPath):
     """
@@ -37,36 +43,15 @@ class GitHubPath(UPath):
 
     _default_accessor = _GitHubAccessor
 
-    def __new__(cls, path: str | "GitHubPath") -> "GitHubPath":
+    def __new__(cls, path: str | GitHubPath) -> GitHubPath:
         """
         New GitHub Path
         """
         file_path = cls.handle_github_url(path)
         return super().__new__(cls, file_path)
 
-    @property
-    def path(self) -> str:
-        """
-        Paths get their leading slash stripped
-        """
-        return super().path.strip("/")
-
-    @property
-    def name(self) -> str:
-        """
-        Override the name for top level repo
-        """
-        if self.path == "":
-            org = self._accessor._fs.org
-            repo = self._accessor._fs.repo
-            sha = self._accessor._fs.storage_options["sha"]
-            github_name = f"{org}:{repo}@{sha}"
-            return github_name
-        else:
-            return super().name
-
     @classmethod
-    def handle_github_url(cls, url: str | "GitHubPath") -> str:
+    def handle_github_url(cls, url: str | GitHubPath) -> str:
         """
         Handle GitHub URLs
 

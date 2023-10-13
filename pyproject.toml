@@ -14,7 +14,7 @@ classifiers = [
 ]
 dependencies = [
   "textual>=0.27.0",
-  "universal-pathlib>=0.0.23,<=0.0.24"
+  "universal-pathlib~=0.1.3"
 ]
 description = "A Textual Directory Tree for all File Systems"
 dynamic = ["version"]
@@ -68,6 +68,7 @@ dependencies = [
   "pip-tools~=6.13.0"
 ]
 features = ["remote"]
+path = ".venv"
 pre-install-commands = ["pip install -U --no-deps -r requirements/requirements-dev.txt"]
 python = "3.10"
 

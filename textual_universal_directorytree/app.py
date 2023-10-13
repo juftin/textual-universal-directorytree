@@ -1,4 +1,6 @@
 import argparse
+import os
+from typing import Optional
 
 import upath
 from rich.syntax import Syntax
@@ -19,9 +21,11 @@ class UniversalDirectoryTreeApp(App):
         ("q", "quit", "Quit"),
     ]
 
-    def __init__(self, *args, path: str, **kwargs):
+    def __init__(self, *args, path: Optional[str] = None, **kwargs):
         super().__init__(*args, **kwargs)
-        self.universal_path = path
+        cwd = os.getcwd()
+        default_path = os.getenv("TUDT_PATH", cwd)
+        self.universal_path = path or default_path
 
     def compose(self) -> ComposeResult:
         yield Header()
@@ -58,6 +62,8 @@ def cli() -> None:
     app = UniversalDirectoryTreeApp(path=file_path)
     app.run()
 
+
+app = UniversalDirectoryTreeApp()
 
 if __name__ == "__main__":
     cli()
