@@ -3,6 +3,7 @@
 site_name: textual-universal-directorytree
 nav:
     - index.md
+    - API Documentation 🤖: reference/
     - Contributing 🤝: contributing.md
 theme:
     favicon: https://raw.githubusercontent.com/juftin/juftin/main/static/juftin.png
@@ -34,6 +35,8 @@ remote_branch: gh-pages
 copyright: Copyright © 2023 Justin Flannery
 extra:
     generator: false
+exclude_docs: |
+    gen_pages.py
 markdown_extensions:
     - toc:
           permalink: "#"
@@ -51,8 +54,26 @@ markdown_extensions:
           custom_checkbox: true
     - pymdownx.tilde
     - admonition
+    - callouts
     - pymdownx.details
+    - pymdownx.emoji
+    - pymdownx.tabbed:
+          alternate_style: true
     - mkdocs-click
 plugins:
     - search
+    - markdown-exec
     - section-index
+    - autorefs
+    - mkdocstrings:
+          handlers:
+              python:
+                  import:
+                      - https://docs.python.org/3/objects.inv
+                  options:
+                      docstring_style: numpy
+    - gen-files:
+          scripts:
+              - docs/gen_pages.py
+    - literate-nav:
+          nav_file: SUMMARY.md
