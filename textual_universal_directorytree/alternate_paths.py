@@ -37,7 +37,7 @@ class GitHubPath(UPath):
 
     _default_accessor = _GitHubAccessor
 
-    def __new__(cls, path: str | "GitHubPath") -> "GitHubPath":
+    def __new__(cls, path: str | GitHubPath) -> GitHubPath:
         """
         New GitHub Path
         """
@@ -66,14 +66,14 @@ class GitHubPath(UPath):
             return super().name
 
     @classmethod
-    def handle_github_url(cls, url: str | "GitHubPath") -> str:
+    def handle_github_url(cls, url: str | GitHubPath) -> str:
         """
         Handle GitHub URLs
 
         GitHub URLs are handled by converting them to the raw URL.
         """
         try:
-            import requests  # type: ignore[import]
+            import requests
         except ImportError as e:
             raise ImportError(
                 "The requests library is required to browse GitHub files. "
@@ -90,12 +90,14 @@ class GitHubPath(UPath):
         elif gitub_prefix in url and "@" in url:
             return url
         else:
-            raise ValueError(f"Invalid GitHub URL: {url}")
+            msg = f"Invalid GitHub URL: {url}"
+            raise ValueError(msg)
         token = getenv("GITHUB_TOKEN")
         auth = {"auth": ("Bearer", token)} if token is not None else {}
         resp = requests.get(
             f"https://api.github.com/repos/{org}/{repo}",
             headers={"Accept": "application/vnd.github.v3+json"},
+            timeout=30,
             **auth,  # type: ignore[arg-type]
         )
         resp.raise_for_status()
@@ -124,6 +126,6 @@ class S3TextualPath(S3Path):
         Override the name for top level repo
         """
         if self._is_top_level_bucket():
-            return f"{self._url.scheme}://{self._url.netloc}"  # type: ignore[union-attr]
+            return f"{self._url.scheme}://{self._url.netloc}"
         else:
             return super().name

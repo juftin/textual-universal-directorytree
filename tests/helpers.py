@@ -6,7 +6,6 @@ from __future__ import annotations
 
 import pathlib
 from os import environ, getenv
-from typing import List, Optional, Tuple
 
 from textual._doc import take_svg_screenshot
 
@@ -25,8 +24,8 @@ class Screenshotter:
         self.app = UniversalDirectoryTreeApp(path=str(file_path))
 
     def take_screenshot(
-        self, press: Optional[List[str]] = None
-    ) -> Tuple[str, pathlib.Path]:
+        self, press: list[str] | None = None
+    ) -> tuple[str, pathlib.Path]:
         """
         Take a Screenshot
         """

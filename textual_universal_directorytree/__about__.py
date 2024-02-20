@@ -1,5 +1,5 @@
 """
-`textual-universal-directorytree` version file.
+textual-universal-directorytree info file
 """
 
 __author__ = "Justin Flannery"
