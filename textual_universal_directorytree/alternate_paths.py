@@ -7,27 +7,11 @@ from __future__ import annotations
 from os import getenv
 from typing import Any
 
-from upath import UPath
-from upath.core import _FSSpecAccessor
 from upath.implementations.cloud import S3Path
+from upath.implementations.github import GitHubPath as UGitHubPath
 
 
-class _GitHubAccessor(_FSSpecAccessor):
-    """
-    FSSpec Accessor for GitHub
-    """
-
-    def __init__(self, *args: Any, **kwargs: Any):
-        """
-        Initialize the GitHub Accessor
-        """
-        token = getenv("GITHUB_TOKEN")
-        if token is not None:
-            kwargs.update({"username": "Bearer", "token": token})
-        super().__init__(*args, **kwargs)
-
-
-class GitHubPath(UPath):
+class GitHubPath(UGitHubPath):
     """
     GitHubPath
 
@@ -35,35 +19,30 @@ class GitHubPath(UPath):
     the Directory Tree
     """
 
-    _default_accessor = _GitHubAccessor
+    def __init__(
+        self, *args: Any, protocol: str | None = None, **storage_options: Any
+    ) -> None:
+        """
+        Initialize the GitHubPath with GitHub Token Authentication
+        """
+        if "token" not in storage_options:
+            token = getenv("GITHUB_TOKEN")
+            if token is not None:
+                storage_options.update({"username": "Bearer", "token": token})
+        handled_args = args
+        if "sha" not in storage_options:
+            handled_url = self.handle_github_url(args[0])
+            handled_args = (handled_url, *args[1:])
+        super().__init__(*handled_args, protocol=protocol, **storage_options)
 
-    def __new__(cls, path: str | GitHubPath) -> GitHubPath:
+    def __str__(self) -> str:
         """
-        New GitHub Path
+        String representation of the GitHubPath
         """
-        file_path = cls.handle_github_url(path)
-        return super().__new__(cls, file_path)
-
-    @property
-    def path(self) -> str:
-        """
-        Paths get their leading slash stripped
-        """
-        return super().path.strip("/")
-
-    @property
-    def name(self) -> str:
-        """
-        Override the name for top level repo
-        """
-        if self.path == "":
-            org = self._accessor._fs.org
-            repo = self._accessor._fs.repo
-            sha = self._accessor._fs.storage_options["sha"]
-            github_name = f"{org}:{repo}@{sha}"
-            return github_name
-        else:
-            return super().name
+        return (
+            f"{self.protocol}://{self.storage_options['org']}:"
+            f"{self.storage_options['repo']}@{self.storage_options['sha']}"
+        )
 
     @classmethod
     def handle_github_url(cls, url: str | GitHubPath) -> str:
@@ -80,7 +59,6 @@ class GitHubPath(UPath):
                 "Install `textual-universal-directorytree` with the `remote` "
                 "extra to install requests."
             ) from e
-
         url = str(url)
         gitub_prefix = "github://"
         if gitub_prefix in url and "@" not in url:

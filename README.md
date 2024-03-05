@@ -52,28 +52,29 @@ class UniversalDirectoryTreeApp(App):
 
     def __init__(self, path: str, *args: Any, **kwargs: Any):
         super().__init__(*args, **kwargs)
-        self.universal_path = path
-        self.file_content = Static()
+        self.file_path = path
+        self.file_content = Static(expand=True)
 
     def compose(self) -> ComposeResult:
         yield Header()
-        directory_tree = UniversalDirectoryTree(path=self.universal_path)
+        directory_tree = UniversalDirectoryTree(path=self.file_path)
         yield Horizontal(directory_tree, VerticalScroll(self.file_content))
         yield Footer()
 
     @on(DirectoryTree.FileSelected)
-    def handle_file_selected(
-            self, message: DirectoryTree.FileSelected
-    ) -> None:
+    def handle_file_selected(self, message: DirectoryTree.FileSelected) -> None:
         """
         Do something with the selected file.
 
         Objects returned by the FileSelected event are upath.UPath objects and
         they are compatible with the familiar pathlib.Path API built into Python.
         """
-        selected_file_path = message.path
-        file_content = selected_file_path.read_text(errors="replace")
-        lexer = Syntax.guess_lexer(path=str(selected_file_path))
+        try:
+            file_content = message.path.read_text()
+        except UnicodeDecodeError:
+            self.file_content.update("")
+            return None
+        lexer = Syntax.guess_lexer(path=message.path.name)
         code = Syntax(code=file_content, lexer=lexer)
         self.file_content.update(code)
 ```
