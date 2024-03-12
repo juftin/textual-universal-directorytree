@@ -4,19 +4,19 @@ Universal Directory Tree Utils
 
 import pathlib
 
-from upath.core import _FSSpecAccessor
-
-
-def is_remote_path(path: pathlib.Path) -> bool:
-    """
-    Check if the path is a remote path
-    """
-    accessor = getattr(path, "_accessor", None)
-    return isinstance(accessor, _FSSpecAccessor)
+from upath import UPath
+from upath.implementations.local import LocalPath
 
 
 def is_local_path(path: pathlib.Path) -> bool:
     """
     Check if the path is a local path
     """
-    return not is_remote_path(path)
+    return isinstance(path, LocalPath)
+
+
+def is_remote_path(path: UPath) -> bool:
+    """
+    Check if the path is a remote path
+    """
+    return not is_local_path(path)

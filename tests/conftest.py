@@ -6,9 +6,9 @@ import pathlib
 from typing import Any, Dict, List
 
 import pytest
+from upath import UPath
 
 from tests.helpers import Screenshotter
-from textual_universal_directorytree.alternate_paths import GitHubPath
 
 
 @pytest.fixture
@@ -28,13 +28,13 @@ def screenshot_dir(repo_dir: pathlib.Path) -> pathlib.Path:
 
 
 @pytest.fixture
-def github_release_path() -> GitHubPath:
+def github_release_path() -> UPath:
     """
     Return the path to the GitHub Release
     """
     release = "v1.0.0"
     uri = f"github://juftin:textual-universal-directorytree@{release}"
-    return GitHubPath(uri)
+    return UPath(uri)
 
 
 @pytest.fixture(scope="module")
@@ -56,13 +56,13 @@ def vcr_config() -> Dict[str, List[Any]]:
 
 
 @pytest.fixture
-def screenshotter(github_release_path: GitHubPath) -> Screenshotter:
+def screenshotter(github_release_path: UPath) -> Screenshotter:
     """
     Return a Screenshotter
 
     Parameters
     ----------
-    github_release_path : GitHubPath
+    github_release_path : UPath
         The path to the GitHub Release
 
     Returns

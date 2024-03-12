@@ -2,16 +2,26 @@
 Textual Universal Directory Tree
 """
 
-from textual_universal_directorytree.alternate_paths import GitHubPath, S3TextualPath
+from upath import UPath, registry
+
+from textual_universal_directorytree.alternate_paths import (
+    GitHubTextualPath,
+    S3TextualPath,
+)
 from textual_universal_directorytree.universal_directory_tree import (
     UniversalDirectoryTree,
 )
 from textual_universal_directorytree.utils import is_local_path, is_remote_path
 
+registry.register_implementation(protocol="github", cls=GitHubTextualPath, clobber=True)
+registry.register_implementation(protocol="s3", cls=S3TextualPath, clobber=True)
+registry.register_implementation(protocol="s3a", cls=S3TextualPath, clobber=True)
+
 __all__ = [
     "UniversalDirectoryTree",
     "is_local_path",
     "is_remote_path",
-    "GitHubPath",
+    "GitHubTextualPath",
     "S3TextualPath",
+    "UPath",
 ]

@@ -4,36 +4,39 @@ Textual's Implementation of Pathlib, Powered by fsspec
 
 from __future__ import annotations
 
-from os import getenv
+import os
 from typing import Any
 
 from upath.implementations.cloud import S3Path
-from upath.implementations.github import GitHubPath as UGitHubPath
+from upath.implementations.github import GitHubPath
 
 
-class GitHubPath(UGitHubPath):
+class GitHubTextualPath(GitHubPath):
     """
     GitHubPath
 
-    UPath implementation for GitHub to be compatible with
-    the Directory Tree
+    UPath implementation for GitHub to be compatible with the Directory Tree
     """
 
-    def __init__(
-        self, *args: Any, protocol: str | None = None, **storage_options: Any
-    ) -> None:
+    @classmethod
+    def _transform_init_args(
+        cls,
+        args: tuple[str | os.PathLike[Any], ...],
+        protocol: str,
+        storage_options: dict[str, Any],
+    ) -> tuple[tuple[str | os.PathLike[Any], ...], str, dict[str, Any]]:
         """
         Initialize the GitHubPath with GitHub Token Authentication
         """
         if "token" not in storage_options:
-            token = getenv("GITHUB_TOKEN")
+            token = os.getenv("GITHUB_TOKEN")
             if token is not None:
                 storage_options.update({"username": "Bearer", "token": token})
         handled_args = args
         if "sha" not in storage_options:
-            handled_url = self.handle_github_url(args[0])
+            handled_url = cls.handle_github_url(args[0])
             handled_args = (handled_url, *args[1:])
-        super().__init__(*handled_args, protocol=protocol, **storage_options)
+        return handled_args, protocol, storage_options
 
     def __str__(self) -> str:
         """
@@ -70,7 +73,7 @@ class GitHubPath(UGitHubPath):
         else:
             msg = f"Invalid GitHub URL: {url}"
             raise ValueError(msg)
-        token = getenv("GITHUB_TOKEN")
+        token = os.getenv("GITHUB_TOKEN")
         auth = {"auth": ("Bearer", token)} if token is not None else {}
         resp = requests.get(
             f"https://api.github.com/repos/{org}/{repo}",
