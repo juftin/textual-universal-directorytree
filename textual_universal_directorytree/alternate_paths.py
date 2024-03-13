@@ -8,6 +8,7 @@ import os
 import re
 from typing import Any
 
+from upath import UPath
 from upath.implementations.cloud import S3Path
 from upath.implementations.github import GitHubPath
 
@@ -116,3 +117,25 @@ class S3TextualPath(S3Path):
             return f"{self._url.scheme}://{self._url.netloc}"
         else:
             return super().name
+
+
+class SFTPTextualPath(UPath):
+    """
+    SFTPTextualPath
+    """
+
+    def __str__(self) -> str:
+        """
+        String representation of the SFTPPath
+        """
+        string_representation = f"{self.protocol}://"
+        if "username" in self.storage_options:
+            string_representation += f"{self.storage_options['username']}@"
+        string_representation += f"{self.storage_options['host']}"
+        if "port" in self.storage_options:
+            string_representation += f":{self.storage_options['port']}"
+        if self.path == ".":
+            string_representation += "/"
+        else:
+            string_representation += f"/{self.path}"
+        return string_representation
