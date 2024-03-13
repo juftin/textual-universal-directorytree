@@ -5,6 +5,7 @@ Textual's Implementation of Pathlib, Powered by fsspec
 from __future__ import annotations
 
 import os
+import re
 from typing import Any
 
 from upath.implementations.cloud import S3Path
@@ -99,6 +100,12 @@ class S3TextualPath(S3Path):
         Check if the path is a top level bucket
         """
         return len(self.parts) == 1 and self.parts[0] == "/"
+
+    def __str__(self) -> str:
+        """
+        String representation of the S3Path
+        """
+        return re.sub(r"s3:/*", "s3://", super().__str__())
 
     @property
     def name(self) -> str:
