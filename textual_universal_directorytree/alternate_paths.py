@@ -44,7 +44,8 @@ class GitHubTextualPath(GitHubPath):
         """
         return (
             f"{self.protocol}://{self.storage_options['org']}:"
-            f"{self.storage_options['repo']}@{self.storage_options['sha']}"
+            f"{self.storage_options['repo']}@{self.storage_options['sha']}/"
+            f"{self.path}"
         )
 
     @classmethod
@@ -84,9 +85,7 @@ class GitHubTextualPath(GitHubPath):
         resp.raise_for_status()
         default_branch = resp.json()["default_branch"]
         arg_str = "/".join(args)
-        github_uri = f"{gitub_prefix}{org}:{repo}@{default_branch}/{arg_str}".rstrip(
-            "/"
-        )
+        github_uri = f"{gitub_prefix}{org}:{repo}@{default_branch}/{arg_str}"
         return github_uri
 
 
