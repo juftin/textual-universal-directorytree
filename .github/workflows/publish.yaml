@@ -8,6 +8,11 @@ jobs:
         name: PyPI
         if: github.repository_owner == 'juftin'
         runs-on: ubuntu-latest
+        environment:
+            name: pypi
+            url: https://pypi.org/p/textual-universal-directorytree
+        permissions:
+            id-token: write
         concurrency:
             group: ${{ github.workflow }}-${{ github.job }}
             cancel-in-progress: false
@@ -29,7 +34,4 @@ jobs:
               run: |
                   hatch build
             - name: Publish package on PyPI
-              uses: pypa/gh-action-pypi-publish@v1.8.11
-              with:
-                  user: __token__
-                  password: ${{ secrets.PYPI_TOKEN }}
+              uses: pypa/gh-action-pypi-publish@release/v1
