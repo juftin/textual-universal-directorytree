@@ -124,9 +124,22 @@ class SFTPTextualPath(UPath):
     SFTPTextualPath
     """
 
+    @property
+    def path(self) -> str:
+        """
+        Always return the path relative to the root
+        """
+        pth = super().path
+        if pth.startswith("."):
+            return f"/{pth[1:]}"
+        elif pth.startswith("/"):
+            return pth
+        else:
+            return "/" + pth
+
     def __str__(self) -> str:
         """
-        String representation of the SFTPPath
+        Add the protocol prefix + extras to the string representation
         """
         string_representation = f"{self.protocol}://"
         if "username" in self.storage_options:
@@ -134,8 +147,5 @@ class SFTPTextualPath(UPath):
         string_representation += f"{self.storage_options['host']}"
         if "port" in self.storage_options:
             string_representation += f":{self.storage_options['port']}"
-        if self.path == ".":
-            string_representation += "/"
-        else:
-            string_representation += f"/{self.path}"
+        string_representation += self.path
         return string_representation

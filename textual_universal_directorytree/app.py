@@ -5,6 +5,7 @@ Example Universal Directory Tree App
 from __future__ import annotations
 
 import argparse
+import os
 from typing import Any, ClassVar
 
 from rich.syntax import Syntax
@@ -46,6 +47,7 @@ class UniversalDirectoryTreeApp(App):
         Objects returned by the FileSelected event are upath.UPath objects and
         they are compatible with the familiar pathlib.Path API built into Python.
         """
+        self.sub_title = str(message.path)
         try:
             file_content = message.path.read_text()
         except UnicodeDecodeError:
@@ -63,9 +65,11 @@ def cli() -> None:
     parser = argparse.ArgumentParser(description="Universal Directory Tree")
     parser.add_argument("path", type=str, help="Path to open", default=".")
     args = parser.parse_args()
-    app = UniversalDirectoryTreeApp(path=args.path)
-    app.run()
+    cli_app = UniversalDirectoryTreeApp(path=args.path)
+    cli_app.run()
 
+
+app = UniversalDirectoryTreeApp(path=os.getenv("UDT_PATH", os.getcwd()))
 
 if __name__ == "__main__":
     cli()
