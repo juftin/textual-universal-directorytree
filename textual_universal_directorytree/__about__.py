@@ -5,4 +5,4 @@ textual-universal-directorytree info file
 __author__ = "Justin Flannery"
 __email__ = "juftin@juftin.com"
 __application__ = "textual-universal-directorytree"
-__version__ = "1.3.1"
+__version__ = "1.3.2"
