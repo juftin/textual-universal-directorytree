@@ -1,10 +1,27 @@
-# Textual Universal Directory Tree
+<h1 align="center">textual-universal-directorytree</h1>
 
-A [Textual](https://textual.textualize.io/) plugin to make the
-[DirectoryTree](https://textual.textualize.io/widgets/directory_tree/)
-widget compatible with filesystems other than local.
+<div align="center">
+  <a href="https://github.com/juftin/textual-universal-directorytree">
+    <img src="docs/screenshots/test_github_screenshot.svg" alt="textual-universal-directorytree" />
+  </a>
+</div>
 
-![](docs/screenshots/test_github_screenshot.svg)
+<p align="center">
+<a href="https://textual.textualize.io/widgets/directory_tree/">DirectoryTree</a> widget for <a href="https://textual.textualize.io/">textual</a>, compatible with all filesystems
+</p>
+
+<p align="center">
+  <a href="https://github.com/juftin/textual-universal-directorytree"><img src="https://img.shields.io/pypi/v/textual-universal-directorytree?color=blue&label=%F0%9F%93%81%20textual-universal-directorytree" alt="PyPI"></a>
+  <a href="https://pypi.python.org/pypi/textual-universal-directorytree/"><img src="https://img.shields.io/pypi/pyversions/textual-universal-directorytree" alt="PyPI - Python Version"></a>
+  <a href="https://github.com/juftin/textual-universal-directorytree/blob/main/LICENSE"><img src="https://img.shields.io/github/license/juftin/textual-universal-directorytree?color=blue&label=License" alt="GitHub License"></a>
+  <a href="https://juftin.github.io/textual-universal-directorytree/"><img src="https://img.shields.io/static/v1?message=docs&color=526CFE&logo=Material+for+MkDocs&logoColor=FFFFFF&label=" alt="docs"></a>
+  <a href="https://github.com/juftin/textual-universal-directorytree/actions/workflows/tests.yaml?query=branch%3Amain"><img src="https://github.com/juftin/textual-universal-directorytree/actions/workflows/tests.yaml/badge.svg?branch=main" alt="Testing Status"></a>
+  <a href="https://github.com/pypa/hatch"><img src="https://img.shields.io/badge/%F0%9F%A5%9A-Hatch-4051b5.svg" alt="Hatch project"></a>
+  <a href="https://github.com/astral-sh/ruff"><img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json" alt="Ruff"></a>
+  <a href="https://github.com/pre-commit/pre-commit"><img src="https://img.shields.io/badge/pre--commit-enabled-lightgreen?logo=pre-commit" alt="pre-commit"></a>
+  <a href="https://github.com/semantic-release/semantic-release"><img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg" alt="semantic-release"></a>
+  <a href="https://gitmoji.dev"><img src="https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg" alt="Gitmoji"></a>
+</p>
 
 ## Installation
 
@@ -26,10 +43,12 @@ pip install "textual-universal-directorytree[remote]"
 
 The below example shows how to use `textual-universal-directorytree` in a Textual app.
 It uses the GitHub filesystem to display the contents of the textual GitHub repository.
-It requires the `requests` library to be installed.
+It requires the `requests` library to be installed (or the `remote` extra).
 
 ```python
-from typing import Any, ClassVar, List
+from __future__ import annotations
+
+from typing import Any, ClassVar
 
 from rich.syntax import Syntax
 from textual import on
@@ -38,7 +57,7 @@ from textual.binding import BindingType
 from textual.containers import Horizontal, VerticalScroll
 from textual.widgets import DirectoryTree, Footer, Header, Static
 
-from textual_universal_directorytree import UniversalDirectoryTree
+from textual_universal_directorytree import UniversalDirectoryTree, UPath
 
 
 class UniversalDirectoryTreeApp(App):
@@ -46,19 +65,30 @@ class UniversalDirectoryTreeApp(App):
     The power of upath and fsspec in a Textual app
     """
 
-    BINDINGS: ClassVar[List[BindingType]] = [
+    TITLE = "UniversalDirectoryTree"
+
+    CSS = """
+    UniversalDirectoryTree {
+        max-width: 50%;
+        width: auto;
+        height: 100%;
+        dock: left;
+    }
+    """
+
+    BINDINGS: ClassVar[list[BindingType]] = [
         ("q", "quit", "Quit"),
     ]
 
-    def __init__(self, path: str, *args: Any, **kwargs: Any):
+    def __init__(self, path: str | UPath, *args: Any, **kwargs: Any):
         super().__init__(*args, **kwargs)
-        self.file_path = path
+        self.universal_path = UPath(path).resolve()
+        self.directory_tree = UniversalDirectoryTree(path=self.universal_path)
         self.file_content = Static(expand=True)
 
     def compose(self) -> ComposeResult:
         yield Header()
-        directory_tree = UniversalDirectoryTree(path=self.file_path)
-        yield Horizontal(directory_tree, VerticalScroll(self.file_content))
+        yield Horizontal(self.directory_tree, VerticalScroll(self.file_content))
         yield Footer()
 
     @on(DirectoryTree.FileSelected)
@@ -69,12 +99,13 @@ class UniversalDirectoryTreeApp(App):
         Objects returned by the FileSelected event are upath.UPath objects and
         they are compatible with the familiar pathlib.Path API built into Python.
         """
+        self.sub_title = str(message.path)
         try:
             file_content = message.path.read_text()
         except UnicodeDecodeError:
             self.file_content.update("")
             return None
-        lexer = Syntax.guess_lexer(path=message.path.name)
+        lexer = Syntax.guess_lexer(path=message.path.name, code=file_content)
         code = Syntax(code=file_content, lexer=lexer)
         self.file_content.update(code)
 ```
