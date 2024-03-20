@@ -90,6 +90,17 @@ class GitHubTextualPath(GitHubPath):
         github_uri = f"{gitub_prefix}{org}:{repo}@{default_branch}/{arg_str}"
         return github_uri
 
+    @property
+    def name(self) -> str:
+        """
+        Override the name for top level repo
+        """
+        original_name = super().name
+        if original_name == "":
+            return self.__str__()
+        else:
+            return original_name
+
 
 class S3TextualPath(S3Path):
     """
@@ -113,10 +124,13 @@ class S3TextualPath(S3Path):
         """
         Override the name for top level repo
         """
+        original_name = super().name
         if self._is_top_level_bucket():
             return f"{self._url.scheme}://{self._url.netloc}"
+        elif original_name == "":
+            return self.__str__()
         else:
-            return super().name
+            return original_name
 
 
 class SFTPTextualPath(UPath):
@@ -149,3 +163,14 @@ class SFTPTextualPath(UPath):
             string_representation += f":{self.storage_options['port']}"
         string_representation += self.path
         return string_representation
+
+    @property
+    def name(self) -> str:
+        """
+        Override the name for top level repo
+        """
+        original_name = super().name
+        if original_name == "":
+            return self.__str__()
+        else:
+            return original_name
