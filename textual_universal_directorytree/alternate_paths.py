@@ -97,7 +97,7 @@ class GitHubTextualPath(GitHubPath):
         """
         original_name = super().name
         if original_name == "":
-            return self.__str__()
+            return self.storage_options["repo"]
         else:
             return original_name
 
@@ -128,7 +128,7 @@ class S3TextualPath(S3Path):
         if self._is_top_level_bucket():
             return f"{self._url.scheme}://{self._url.netloc}"
         elif original_name == "":
-            return self.__str__()
+            return self.parts[-1].rstrip("/")
         else:
             return original_name
 
@@ -171,6 +171,6 @@ class SFTPTextualPath(UPath):
         """
         original_name = super().name
         if original_name == "":
-            return self.__str__()
+            return "/"
         else:
             return original_name
