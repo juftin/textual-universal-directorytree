@@ -10,7 +10,6 @@ classifiers = [
   "Development Status :: 4 - Beta",
   "Operating System :: OS Independent",
   "Programming Language :: Python",
-  "Programming Language :: Python :: 3.8",
   "Programming Language :: Python :: 3.9",
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
@@ -24,12 +23,12 @@ dependencies = [
   "universal-pathlib>=0.2.6"
 ]
 description = "A Textual Directory Tree for all File Systems"
-dynamic = ["version"]
 keywords = ["textual", "tui", "plugin", "fsspec"]
 license = "MIT"
 name = "textual-universal-directorytree"
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.9,<4"
+version = "1.6.0"
 
 [project.optional-dependencies]
 remote = [
