@@ -46,6 +46,36 @@ Documentation = "https://github.com/juftin/textual-universal-directorytree#readm
 Issues = "https://github.com/juftin/textual-universal-directorytree/issues"
 Source = "https://github.com/juftin/textual-universal-directorytree"
 
+[dependency-groups]
+dev = [
+  "pytest",
+  "pytest-cov",
+  "mypy>=1.6.1",
+  "ruff~=0.1.7"
+]
+docs = [
+  "markdown-callouts",
+  "markdown-exec",
+  "mkdocs",
+  "mkdocs-autorefs",
+  "mkdocs-click",
+  "mkdocs-gen-files",
+  "mkdocs-literate-nav",
+  "mkdocs-material",
+  "mkdocs-section-index",
+  "mkdocstrings",
+  "mkdocstrings-python"
+]
+
+[tool.pytest.ini_options]
+addopts = [
+  "-v",
+  "--cov=textual_universal_directorytree",
+  "--cov-report=term-missing",
+  "--cov-report=xml:coverage.xml",
+  "--junitxml=pytest.xml"
+]
+
 [tool.coverage.paths]
 tests = ["tests", "*/textual-universal-directorytree/tests"]
 textual_universal_directorytree = ["textual_universal_directorytree", "*/textual-universal-directorytree/textual_universal_directorytree"]
@@ -65,93 +95,6 @@ omit = [
 ]
 parallel = true
 source_pkgs = ["textual_universal_directorytree", "tests"]
-
-[tool.cruft]
-skip = [
-  "textual_universal_directorytree/__about__.py",
-  "textual_universal_directorytree/__init__.py",
-  "tests/"
-]
-
-[tool.hatch.env]
-requires = ["hatch-pip-compile", "hatch-mkdocs"]
-
-[tool.hatch.env.collectors.mkdocs.docs]
-path = "mkdocs.yaml"
-
-[tool.hatch.envs.all]
-pip-compile-constraint = ""
-template = "test"
-
-[[tool.hatch.envs.all.matrix]]
-python = ["3.8", "3.9", "3.10", "3.11", "3.12", "3.13"]
-
-[tool.hatch.envs.default]
-features = ["remote"]
-pip-compile-constraint = "default"
-post-install-commands = [
-  "- pre-commit install"
-]
-type = "pip-compile"
-
-[tool.hatch.envs.default.scripts]
-cov = "hatch run test:cov"
-test = "hatch run test:test"
-
-[tool.hatch.envs.docs]
-detached = false
-pip-compile-constraint = "default"
-template = "docs"
-type = "pip-compile"
-
-[tool.hatch.envs.gen]
-detached = true
-
-[tool.hatch.envs.gen.scripts]
-release = [
-  "npm install --prefix .github/semantic_release/",
-  "npx --prefix .github/semantic_release/ semantic-release {args:}"
-]
-
-[tool.hatch.envs.lint]
-dependencies = [
-  "mypy>=1.6.1",
-  "ruff~=0.1.7"
-]
-detached = true
-type = "pip-compile"
-
-[tool.hatch.envs.lint.scripts]
-all = [
-  "style",
-  "typing"
-]
-fmt = [
-  "ruff format {args:.}",
-  "ruff --fix {args:.}",
-  "style"
-]
-precommit = [
-  "pre-commit run --all-files"
-]
-style = [
-  "ruff {args:.}",
-  "ruff format --check --diff {args:.}"
-]
-typing = "mypy --install-types --non-interactive {args:textual_universal_directorytree tests}"
-
-[tool.hatch.envs.test]
-dependencies = [
-  "pytest",
-  "pytest-cov"
-]
-
-[tool.hatch.envs.test.scripts]
-cov = "pytest --cov --cov-config=pyproject.toml {args:tests}"
-test = "pytest {args:tests}"
-
-[tool.hatch.version]
-path = "textual_universal_directorytree/__about__.py"
 
 [tool.mypy]
 check_untyped_defs = true
@@ -197,7 +140,6 @@ select = [
   "FBT",  # flake8-boolean-trap
   "I",  # isort
   "ICN",  # flake8-import-conventions
-  "ISC",  # flake8-implicit-str-concat
   "N",  # pep8-naming
   "PLC",  # Pylint (Convention message)
   "PLE",  # Pylint (Error message)
