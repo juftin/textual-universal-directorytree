@@ -36,7 +36,7 @@ class GitHubTextualPath(GitHubPath):
                 storage_options.update({"username": "Bearer", "token": token})
         handled_args = args
         if "sha" not in storage_options:
-            handled_url = cls.handle_github_url(args[0])
+            handled_url = cls.handle_github_url(args[0])  # type: ignore[arg-type]
             handled_args = (handled_url, *args[1:])
         return handled_args, protocol, storage_options
 
@@ -58,7 +58,7 @@ class GitHubTextualPath(GitHubPath):
         GitHub URLs are handled by converting them to the raw URL.
         """
         try:
-            import requests
+            import requests  # type: ignore[import-untyped]
         except ImportError as e:
             raise ImportError(
                 "The requests library is required to browse GitHub files. "
@@ -82,7 +82,7 @@ class GitHubTextualPath(GitHubPath):
             f"https://api.github.com/repos/{org}/{repo}",
             headers={"Accept": "application/vnd.github.v3+json"},
             timeout=30,
-            **auth,  # type: ignore[arg-type]
+            **auth,
         )
         resp.raise_for_status()
         default_branch = resp.json()["default_branch"]

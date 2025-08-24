@@ -19,7 +19,7 @@ from upath import UPath
 from textual_universal_directorytree import UniversalDirectoryTree
 
 
-class UniversalDirectoryTreeApp(App):
+class UniversalDirectoryTreeApp(App[str]):
     """
     The power of upath and fsspec in a Textual app
     """
