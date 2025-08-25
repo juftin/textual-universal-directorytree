@@ -13,8 +13,6 @@
 <p align="center">
   <a href="https://github.com/juftin/textual-universal-directorytree"><img src="https://img.shields.io/pypi/v/textual-universal-directorytree?color=blue&label=textual-universal-directorytree" alt="PyPI"></a>
   <a href="https://pypi.python.org/pypi/textual-universal-directorytree/"><img src="https://img.shields.io/pypi/pyversions/textual-universal-directorytree" alt="PyPI - Python Version"></a>
-  <a href="https://hub.docker.com/r/juftin/textual-universal-directorytree"><img src="https://img.shields.io/docker/v/juftin/textual-universal-directorytree?color=blue&label=docker&logo=docker" alt="Docker Image Version"></a>
-  <a href="https://github.com/conda-forge/textual-universal-directorytree-feedstock"><img src="https://img.shields.io/conda/v/conda-forge/textual-universal-directorytree?label=conda-forge" alt="Conda Version"></a>
   <a href="https://github.com/juftin/textual-universal-directorytree/blob/main/LICENSE"><img src="https://img.shields.io/github/license/juftin/textual-universal-directorytree?color=blue&label=License" alt="GitHub License"></a>
   <a href="https://github.com/juftin/textual-universal-directorytree/actions/workflows/test.yaml?query=branch%3Amain"><img src="https://github.com/juftin/textual-universal-directorytree/actions/workflows/test.yaml/badge.svg?branch=main" alt="Testing Status"></a>
   <a href="https://github.com/go-task/task"><img src="https://img.shields.io/badge/task---?message=task&logo=task&color=teal&labelColor=grey" alt="task"></a>
